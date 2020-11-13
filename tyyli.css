@@ -24,6 +24,11 @@ body {
   transition: 1s all;
 }
 
+h1 {
+  font-size: 50px;
+  padding: 10px;
+}
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -39,7 +44,7 @@ body {
 
 .modal {
   z-index: 14;
-  top: 50px;
+  top: 100px;
   left: auto;
   margin: auto;
   position: absolute;
@@ -120,6 +125,10 @@ body {
   margin: auto;
 }
 
+.tulos #vuoro {
+  color: red;
+}
+
 .tulos button {
   font-size: 2rem;
   color: white;
@@ -132,5 +141,57 @@ body {
 
 .end {
   display: block;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background: lightgray;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100vh;
+    -webkit-transition: 1s all;
+    transition: 1s all;
+  }
+  .container {
+    margin-top: 100px;
+    width: 200px;
+  }
+  .modal {
+    font-size: 1.5em;
+    padding: 10px;
+  }
+  .tulos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 1.5em;
+    width: 300px;
+    height: 200px;
+    margin: auto;
+  }
+  .tulos p {
+    margin-bottom: 10px;
+  }
 }
 /*# sourceMappingURL=tyyli.css.map */

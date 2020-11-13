@@ -16,10 +16,9 @@ const voittoRivit = [
     [3, 5, 7]
 ]
 
-let ratkaisija = 0
+
 let turn = 0
-//pelaaja 1 on punainen
-let pelaaja = 1
+
 
 ruutu.forEach(function(ele) {
     ele.addEventListener('click', event => {
@@ -35,24 +34,17 @@ ruutu.forEach(function(ele) {
                 vuoro.innerText = 'punaisen'
                 vuoro.style.color = 'red'
             }
-               tarkistaPunainen()
+               tarkistaVoittaja()
                
                turn++
-                if(turn == 9) {
-                    modal.classList.add('end')
-                    overlay.classList.add('end')
+                if(turn == 9) {                
                     voittaja.innerText ='Tasapeli'
-                    overlay.addEventListener('click', () =>{
-                        reset()
-                    })
-                   
-                   
-                   
-                    
+                    loppu()                 
                 }    
             })
-    
 } )
+
+
 
 btn.addEventListener('click', () => {
     reset()
@@ -64,7 +56,7 @@ function reset() {
         e.innerHTML = ''
         voittaja.innerText = ''
         vuoro.innerText = 'Punainen aloittaa'
-        vuoro.style.color = 'black'
+        vuoro.style.color = 'red'
         modal.classList.remove('end')
         overlay.classList.remove('end')
         voittaja.innerText = ''
@@ -72,39 +64,33 @@ function reset() {
     })
 }
 
-function tarkistaPunainen(){    
+function tarkistaVoittaja(){    
         for(i = 0; i < voittoRivit.length; i++){
             let voittoEhdot = voittoRivit[i]
             let a = voittoEhdot[0]
             let b = voittoEhdot[1]
             let c = voittoEhdot[2]
-            console.log(ruutu[a].innerText)
-            if(ruutu[a].innerText == 'x' && ruutu[b].innerText == 'x' && ruutu[c] == 'x'){
-                console.log('voitit')
+            if(ruutu[a-1].innerText == 'x' && ruutu[b-1].innerText == 'x' && ruutu[c-1].innerText == 'x') {
+                voittaja.innerText = ('punainen voitti')
+                voittaja.style.color = 'red'
+                vuoro.innerText = ''
+                loppu()
+            } else if(ruutu[a-1].innerText == 'o' && ruutu[b-1].innerText == 'o' && ruutu[c-1].innerText == 'o') {
+                voittaja.innerText = ('vihreä voitti')
+                voittaja.style.color = 'green'
+                vuoro.innerText = ''
+                loppu()
             }
             
         }
 
         
     }
-
-   /*  function tarkistaVihreä(){ 
-        let ratkaisija = 0 
-       for(let numero of ruutu){ 
-        for(i = 0; i < voittoRivit.length; i++) { 
-                 
-            for(let sisältö of voittoRivit[i]){            
-                let daata = numero.dataset.id       
-                if(numero.innerText == 'o' && parseInt(daata) == sisältö){
-                    ratkaisija++
-                    if(ratkaisija == 3) {
-                        console.log('vihreä')
-                    }  
-                }  
-                       
-                } 
-            }
-        }        
-        }   */
- 
-
+function loppu() {
+    modal.classList.add('end')
+    overlay.classList.add('end')
+    overlay.addEventListener('click', () =>{
+        reset()
+    }) 
+}
+  

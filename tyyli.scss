@@ -13,6 +13,10 @@ body {
 	height: 100vh;
 	transition: 1s all;
 }
+h1 {
+	font-size: 50px;
+	padding: 10px;
+}
 .overlay {
 	position: fixed;
 	width: 100%;
@@ -27,7 +31,7 @@ body {
 }
 .modal {
 	z-index: 14;
-	top: 50px;
+	top: 100px;
 	left: auto;
 	margin: auto;
 	position: absolute;
@@ -78,6 +82,9 @@ body {
 	width: 500px;
 	height: 200px;
 	margin: auto;
+	#vuoro {
+		color: red;
+	}
 
 	button {
 		font-size: 2rem;
@@ -90,4 +97,36 @@ body {
 }
 .end {
 	display: block;
+}
+@media screen and (max-width: 600px) {
+	body {
+		background: lightgray;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		height: 100vh;
+		transition: 1s all;
+	}
+	.container {
+		margin-top: 100px;
+		width: 200px;
+	}
+	.modal {
+		font-size: 1.5em;
+		padding: 10px;
+	}
+	.tulos {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		font-size: 1.5em;
+		width: 300px;
+		height: 200px;
+		margin: auto;
+		p {
+			margin-bottom: 10px;
+		}
+	}
 }
