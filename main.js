@@ -8,7 +8,12 @@ const modal = document.querySelector('.modal')
 const voittoRivit = [
     [1, 2, 3],
     [4, 5, 6],
-    [7, 8, 9]
+    [7, 8, 9],
+    [1, 4, 7],
+    [2, 5, 8],
+    [3, 6, 9],
+    [1, 5, 9],
+    [3, 5, 7]
 ]
 
 let ratkaisija = 0
@@ -31,7 +36,7 @@ ruutu.forEach(function(ele) {
                 vuoro.style.color = 'red'
             }
                tarkistaPunainen()
-               tarkistaVihreä()
+               
                turn++
                 if(turn == 9) {
                     modal.classList.add('end')
@@ -67,25 +72,23 @@ function reset() {
     })
 }
 
-function tarkistaPunainen(){ 
-    let ratkaisija = 0
-   for(let numero of ruutu){ 
-   
-    for(i = 0; i < voittoRivit.length; i++) {       
-        for(let sisältö of voittoRivit[i]){            
-            let daata = numero.dataset.id       
-            if(numero.innerText == 'x' && parseInt(daata) == sisältö){
-                ratkaisija++
-                if(ratkaisija == 3) {
-                    console.log('punainen')
-                }  
-            }  
-                   
-            } 
+function tarkistaPunainen(){    
+        for(i = 0; i < voittoRivit.length; i++){
+            let voittoEhdot = voittoRivit[i]
+            let a = voittoEhdot[0]
+            let b = voittoEhdot[1]
+            let c = voittoEhdot[2]
+            console.log(ruutu[a].innerText)
+            if(ruutu[a].innerText == 'x' && ruutu[b].innerText == 'x' && ruutu[c] == 'x'){
+                console.log('voitit')
+            }
+            
         }
-    }        
+
+        
     }
-    function tarkistaVihreä(){ 
+
+   /*  function tarkistaVihreä(){ 
         let ratkaisija = 0 
        for(let numero of ruutu){ 
         for(i = 0; i < voittoRivit.length; i++) { 
@@ -102,6 +105,6 @@ function tarkistaPunainen(){
                 } 
             }
         }        
-        }  
+        }   */
  
 
